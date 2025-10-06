@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Slider Test</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: #090909;
+      color: white;
+    }
+
+    .block5 {
+      width: 100%;
+      padding: 80px 0;
+      background-color: #090909;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .zag4 {
+      font-size: 48px;
+      font-weight: 300;
+      margin-bottom: 30px;
+      text-align: center;
+      width: 100%;
+    }
+
+    .slider-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 1200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: visible;
+    }
+
+    .horizontal-slider {
+      display: flex;
+      overflow-x: auto;
+      gap: 30px;
+      padding: 0 60px;
+      scroll-behavior: smooth;
+    }
+
+    .horizontal-slider::-webkit-scrollbar {
+      display: none;
+    }
+
+    .horizontal-slider img {
+      flex-shrink: 0;
+      width: 300px;
+      height: 350px;
+      object-fit: cover;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      box-shadow: 0 4px 12px rgba(199, 88, 36, 0.5);
+    }
+
+    .horizontal-slider img:hover {
+      transform: scale(1.05);
+    }
+
+    .arrow-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      border: none;
+      color: white;
+      font-size: 36px;
+      cursor: pointer;
+      z-index: 10;
+      user-select: none;
+      padding: 10px;
+    }
+
+    .arrow-button.left {
+      left: 10px;
+    }
+
+    .arrow-button.right {
+      right: 10px;
+    }
+
+    .arrow-button:hover {
+      color: #e26a38;
+    }
+  </style>
+</head>
+<body>
+
+<div class="block5">
+  <div class="zag4">
+    НЕ ПРОСТО ГАСТРОБАР.<br>КАРТОТЕКА ПАМЯТИ
+  </div>
+  <div class="slider-wrapper">
+    <button class="arrow-button left" onclick="scrollSlider(-1)">&#8249;</button>
+
+    <div class="horizontal-slider" id="horizontal-slider">
+      <img src="карточ1.jpg" alt="карточ1" />
+        <img src="карточ2.jpg" alt="карточ2" />
+        <img src="карточ3.jpg" alt="карточ3" />
+        <img src="карточ4.jpg" alt="карточ4" />
+        <img src="карточ5.jpg" alt="карточ5" />
+        <img src="карточ6.jpg" alt="карточ6" />
+        <img src="карточ7.jpg" alt="карточ7" />
+        <img src="карточ8.jpg" alt="карточ8" />
+        <img src="карточ9.jpg" alt="карточ9" />
+    </div>
+
+    <button class="arrow-button right" onclick="scrollSlider(1)">&#8250;</button>
+  </div>
+</div>
+
+<script>
+  function scrollSlider(direction) {
+    const slider = document.getElementById("horizontal-slider");
+    const scrollAmount = 330;
+    slider.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+  }
+</script>
+
+</body>
+</html>
