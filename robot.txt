@@ -2,4 +2,4 @@ User-agent: *
 Disallow: /directives.html
 Disallow: / characters.html
 Allow: / index.html
-Sitemap: https://akura-e.github.io/-/sitemap.xml
+Sitemap: https://katerina321.github.io/laba2/sitemap.xml
